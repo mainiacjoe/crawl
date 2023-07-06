@@ -1150,6 +1150,12 @@ int make_mons_weapon(monster_type type, int level, bool melee_only)
             make_item_unrandart(item, UNRAND_SNAKEBITE);
         break;
 
+	case MONS_JORY:
+        if (one_chance_in(100) && !get_unique_item_status(UNRAND_VAMPIRES_TOOTH))
+            make_item_unrandart(item, UNRAND_VAMPIRES_TOOTH);
+        break;
+	
+
     case MONS_ARACHNE:
         force_item = true;
         item.base_type = OBJ_STAVES;
