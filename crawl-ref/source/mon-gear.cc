@@ -1691,6 +1691,12 @@ static void _give_shield(monster* mon, int level)
         shield = make_item_for_monster(mon, OBJ_ARMOUR, ARM_GLOVES,
                                        level * 2 + 1, 1);
         break;
+        
+    case MONS_PRINCE_RIBBIT:
+    	  if (one_chance_in(100) && !get_unique_item_status(UNRAND_DYROVEPREVA))
+			    make_item_unrandart(item, UNRAND_DYROVAPREVA);
+        break;
+        
 
     case MONS_ROBIN:
         // The Nikola Hack
