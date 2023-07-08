@@ -1706,7 +1706,7 @@ static void _give_shield(monster* mon, int level)
         
     case MONS_PRINCE_RIBBIT:
     	  if (one_chance_in(100) && !get_unique_item_status(UNRAND_DYROVEPREVA))
-			    make_item_unrandart(item, UNRAND_DYROVAPREVA);
+			    make_item_unrandart(item, UNRAND_DYROVEPREVA);
         break;
         
 
@@ -2045,7 +2045,7 @@ int make_mons_armour(monster_type type, int level)
         break;
 
     case MONS_MAURICE:
-			if (one_chance-in(100) && !get_unique_item_status(UNRAND_THIEF))
+			if (one_chance_in(100) && !get_unique_item_status(UNRAND_THIEF))
 			{
 				make_item_unrandart(item, UNRAND_THIEF);			
 			}
@@ -2065,7 +2065,7 @@ int make_mons_armour(monster_type type, int level)
     {
         if (one_chance_in(100) && !get_unique_item_status(UNRAND_ZHOR))
         {
-        		make_item_unrandart(item, UNRAND_ZHOR)
+        		make_item_unrandart(item, UNRAND_ZHOR);
         }
 		  else
         {
