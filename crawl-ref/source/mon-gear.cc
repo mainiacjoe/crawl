@@ -2039,6 +2039,17 @@ int make_mons_armour(monster_type type, int level)
         break;
 
     case MONS_MAURICE:
+			if (one_chance-in(100) && !get_unique_item_status(UNRAND_THIEF))
+			{
+				make_item_unrandart(item, UNRAND_THIEF);			
+			}
+			else
+			{
+         	item.base_type = OBJ_ARMOUR;
+         	item.sub_type  = ARM_CLOAK;
+			}
+			break;
+
     case MONS_CRAZY_YIUF:
         item.base_type = OBJ_ARMOUR;
         item.sub_type  = ARM_CLOAK;
