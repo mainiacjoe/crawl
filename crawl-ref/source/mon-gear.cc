@@ -1364,12 +1364,6 @@ static void _give_weapon(monster *mon, int level, bool second_weapon = false)
                               0, 1, ISFLAG_KNOW_TYPE);
     }
 
-    if (mon->type == MONS_NERGALLE)
-    {
-			if (one_chance_in(100) && !get_unique_item_status(UNRAND_FINGER_AMULET))
-					make_item_unrandart(item, UNRAND_FINGER_AMULET);
-    }
-
     if (mon->type == MONS_JOSEPHINA)
     {
         make_item_for_monster(mon, OBJ_JEWELLERY, RING_ICE,
@@ -1704,10 +1698,10 @@ static void _give_shield(monster* mon, int level)
                                        level * 2 + 1, 1);
         break;
         
-    case MONS_PRINCE_RIBBIT:
-    	  if (one_chance_in(100) && !get_unique_item_status(UNRAND_DYROVEPREVA))
-			    make_item_unrandart(item, UNRAND_DYROVEPREVA);
-        break;
+//    case MONS_PRINCE_RIBBIT:
+//    	  if (one_chance_in(100) && !get_unique_item_status(UNRAND_DYROVEPREVA))
+//			    make_item_unrandart(item, UNRAND_DYROVEPREVA);
+//        break;
         
 
     case MONS_ROBIN:
