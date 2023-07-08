@@ -947,7 +947,8 @@ int make_mons_weapon(monster_type type, int level, bool melee_only)
 
 
     static const map<monster_type, mon_weapon_spec> secondary_weapon_specs = {
-        { MONS_JOSEPH, { { { WPN_SLING, 1 } } } },
+        { MONS_JOSEPH, 
+        		{ { { WPN_SLING, 1 } } } },
         { MONS_DEEP_ELF_ARCHER,
             { { { WPN_SHORTBOW,         3 },
                 { WPN_LONGBOW,          1 },
@@ -1080,6 +1081,11 @@ int make_mons_weapon(monster_type type, int level, bool melee_only)
         }
         item.flags |= ISFLAG_KNOW_TYPE;
         break;
+
+	 case MONS_JOSEPH:
+	 	  if (one_chance_in(100) && !get_unique_item_status(UNRAND_PUNK))
+	 	  		make_item_unrandart(item, UNRAND_PUNK);
+	 	  break;
 
     case MONS_CYCLOPS:
     case MONS_STONE_GIANT:
