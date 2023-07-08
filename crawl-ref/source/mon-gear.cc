@@ -1083,7 +1083,8 @@ int make_mons_weapon(monster_type type, int level, bool melee_only)
         break;
 
 	 case MONS_JOSEPH:
-	 	  if (one_chance_in(100) && !get_unique_item_status(UNRAND_PUNK))
+//	 	  if (one_chance_in(100) && !get_unique_item_status(UNRAND_PUNK))
+	 	  if (!get_unique_item_status(UNRAND_PUNK))
 	 	  		make_item_unrandart(item, UNRAND_PUNK);
 	 	  break;
 
@@ -1157,7 +1158,8 @@ int make_mons_weapon(monster_type type, int level, bool melee_only)
         break;
 
 	case MONS_JORY:
-        if (one_chance_in(100) && !get_unique_item_status(UNRAND_VAMPIRES_TOOTH))
+//        if (one_chance_in(100) && !get_unique_item_status(UNRAND_VAMPIRES_TOOTH))
+        if (!get_unique_item_status(UNRAND_VAMPIRES_TOOTH))
             make_item_unrandart(item, UNRAND_VAMPIRES_TOOTH);
         break;
 	
@@ -2039,7 +2041,8 @@ int make_mons_armour(monster_type type, int level)
         break;
 
     case MONS_MAURICE:
-			if (one_chance_in(100) && !get_unique_item_status(UNRAND_THIEF))
+//			if (one_chance_in(100) && !get_unique_item_status(UNRAND_THIEF))
+			if (!get_unique_item_status(UNRAND_THIEF))
 			{
 				make_item_unrandart(item, UNRAND_THIEF);			
 			}
@@ -2057,7 +2060,8 @@ int make_mons_armour(monster_type type, int level)
 
     case MONS_FANNAR:
     {
-        if (one_chance_in(100) && !get_unique_item_status(UNRAND_ZHOR))
+//        if (one_chance_in(100) && !get_unique_item_status(UNRAND_ZHOR))
+        if (!get_unique_item_status(UNRAND_ZHOR))
         {
         		make_item_unrandart(item, UNRAND_ZHOR);
         }
