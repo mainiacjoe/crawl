@@ -1707,7 +1707,7 @@ static void _give_shield(monster* mon, int level)
         break;
 
     case MONS_NERGALLE:
-    		if (!get_unique_item_status(UNRAND_FINGER_AMULET))
+    		if (one_chance_in(100) && !get_unique_item_status(UNRAND_FINGER_AMULET))
     		{
         shield = make_item_for_monster(mon, OBJ_JEWELLERY, AMU_NOTHING, level);
         if (shield)
@@ -2054,14 +2054,11 @@ int make_mons_armour(monster_type type, int level)
         break;
 
     case MONS_MAURICE:
-//			if (one_chance_in(100) && !get_unique_item_status(UNRAND_THIEF))
 			force_item = true;
        	item.base_type = OBJ_ARMOUR;
         	item.sub_type  = ARM_CLOAK;
-			if (!get_unique_item_status(UNRAND_THIEF))
-			{
+			if (one_chance_in(100) && !get_unique_item_status(UNRAND_THIEF))
 				make_item_unrandart(item, UNRAND_THIEF);			
-			}
 			break;
 
     case MONS_CRAZY_YIUF:
@@ -2071,16 +2068,20 @@ int make_mons_armour(monster_type type, int level)
 
     case MONS_FANNAR:
     {
-//        if (one_chance_in(100) && !get_unique_item_status(UNRAND_ZHOR))
     		force_item = true;
     		item.base_type = OBJ_ARMOUR;
+         if (one_chance_in(100) && !get_unique_item_status(UNRAND_ZHOR))
+			{
+				item.sub_type = ARM_ANIMAL_SKIN;
+        		make_item_unrandart(item, UNRAND_ZHOR);
+			}
+			else
+			{
      		item.sub_type  = ARM_ROBE;
      		item.plus = 1 + coinflip();
      		set_item_ego_type(item, OBJ_ARMOUR, SPARM_COLD_RESISTANCE);
      		item.flags |= ISFLAG_KNOW_TYPE;
-
-        if (!get_unique_item_status(UNRAND_ZHOR))
-        		make_item_unrandart(item, UNRAND_ZHOR);
+			}
         break;
     }
 
