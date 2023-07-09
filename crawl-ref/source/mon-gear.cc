@@ -1931,18 +1931,6 @@ int make_mons_armour(monster_type type, int level)
         force_item = true;
         break;
 
-    case MONS_PRINCE_RIBBIT:
-                  // Currently broken: item never generates
-                  // if (!get_unique_item_status(UNRAND_DYROVEPREVA))
-        if (one_chance_in(100) && !get_unique_item_status(UNRAND_DYROVEPREVA))
-        {
-            force_item = true;
-            item.base_type = OBJ_ARMOUR;
-            item.sub_type = ARM_HAT;
-            make_item_unrandart(item, UNRAND_DYROVEPREVA);
-        }
-        break;
-
     case MONS_HELLBINDER:
     case MONS_SALAMANDER_MYSTIC:
     case MONS_SERVANT_OF_WHISPERS:
