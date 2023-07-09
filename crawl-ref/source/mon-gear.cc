@@ -1712,6 +1712,17 @@ static void _give_shield(monster* mon, int level)
                               level * 2 + 1, 1);
         break;
 
+    case MONS_NERGALLE:
+    		if (!get_unique_item_status(UNRAND_FINGER_AMULET))
+    		{
+        shield = make_item_for_monster(mon, OBJ_JEWELLERY, AMU_NOTHING, level);
+        if (shield)
+            make_item_unrandart(*shield, UNRAND_FINGER_AMULET);
+			}        
+        break;
+
+
+
     case MONS_DEMONSPAWN_CORRUPTER:
     case MONS_DEMONSPAWN_BLACK_SUN:
         if (one_chance_in(3))
