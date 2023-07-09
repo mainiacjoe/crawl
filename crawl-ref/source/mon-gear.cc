@@ -1083,10 +1083,11 @@ int make_mons_weapon(monster_type type, int level, bool melee_only)
         break;
 
          case MONS_JOSEPH:
-//                if (one_chance_in(100) && !get_unique_item_status(UNRAND_PUNK))
-                  if (!get_unique_item_status(UNRAND_PUNK))
-                                make_item_unrandart(item, UNRAND_PUNK);
-                  break;
+                        // Currently broken: the unrand appears with random enchantment
+         // if (!get_unique_item_status(UNRAND_PUNK))
+         if (one_chance_in(100) && !get_unique_item_status(UNRAND_PUNK))
+            make_item_unrandart(item, UNRAND_PUNK);
+         break;
 
     case MONS_CYCLOPS:
     case MONS_STONE_GIANT:
@@ -1158,8 +1159,9 @@ int make_mons_weapon(monster_type type, int level, bool melee_only)
         break;
 
         case MONS_JORY:
-//        if (one_chance_in(100) && !get_unique_item_status(UNRAND_VAMPIRES_TOOTH))
-        if (!get_unique_item_status(UNRAND_VAMPIRES_TOOTH))
+                  // currently broken: the unrand appears with a random enchantment
+        // if (!get_unique_item_status(UNRAND_VAMPIRES_TOOTH))
+        if (one_chance_in(100) && !get_unique_item_status(UNRAND_VAMPIRES_TOOTH))
             make_item_unrandart(item, UNRAND_VAMPIRES_TOOTH);
         break;
 
@@ -1711,9 +1713,7 @@ static void _give_shield(monster* mon, int level)
                 {
         shield = make_item_for_monster(mon, OBJ_JEWELLERY, AMU_NOTHING, level);
         if (shield)
-        {
             make_item_unrandart(*shield, UNRAND_FINGER_AMULET);
-                        }
         }
         break;
 
@@ -1932,13 +1932,15 @@ int make_mons_armour(monster_type type, int level)
         break;
 
     case MONS_PRINCE_RIBBIT:
-          if (!get_unique_item_status(UNRAND_DYROVEPREVA))
+                  // Currently broken: item never generates
+                  // if (!get_unique_item_status(UNRAND_DYROVEPREVA))
+        if (one_chance_in(100) && !get_unique_item_status(UNRAND_DYROVEPREVA))
         {
-        force_item = true;
-        item.base_type = OBJ_ARMOUR;
-        item.sub_type = ARM_HAT;
-        make_item_unrandart(item, UNRAND_DYROVEPREVA);
-                        }
+            force_item = true;
+            item.base_type = OBJ_ARMOUR;
+            item.sub_type = ARM_HAT;
+            make_item_unrandart(item, UNRAND_DYROVEPREVA);
+        }
         break;
 
     case MONS_HELLBINDER:
