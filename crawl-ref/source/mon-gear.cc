@@ -2049,20 +2049,12 @@ int make_mons_armour(monster_type type, int level)
 
     case MONS_FANNAR:
     {
-                force_item = true;
-                item.base_type = OBJ_ARMOUR;
-         if (one_chance_in(100) && !get_unique_item_status(UNRAND_ZHOR))
-                        {
-                                item.sub_type = ARM_ANIMAL_SKIN;
-                        make_item_unrandart(item, UNRAND_ZHOR);
-                        }
-                        else
-                        {
-                item.sub_type  = ARM_ROBE;
-                item.plus = 1 + coinflip();
-                set_item_ego_type(item, OBJ_ARMOUR, SPARM_COLD_RESISTANCE);
-                item.flags |= ISFLAG_KNOW_TYPE;
-                        }
+        force_item = true;
+        item.base_type = OBJ_ARMOUR;
+        item.sub_type  = ARM_ROBE;
+        item.plus = 1 + coinflip();
+        set_item_ego_type(item, OBJ_ARMOUR, SPARM_COLD_RESISTANCE);
+        item.flags |= ISFLAG_KNOW_TYPE;
         break;
     }
 
