@@ -947,8 +947,8 @@ int make_mons_weapon(monster_type type, int level, bool melee_only)
 
 
     static const map<monster_type, mon_weapon_spec> secondary_weapon_specs = {
-        { MONS_JOSEPH, 
-        		{ { { WPN_SLING, 1 } } } },
+        { MONS_JOSEPH,
+                        { { { WPN_SLING, 1 } } } },
         { MONS_DEEP_ELF_ARCHER,
             { { { WPN_SHORTBOW,         3 },
                 { WPN_LONGBOW,          1 },
@@ -1082,11 +1082,11 @@ int make_mons_weapon(monster_type type, int level, bool melee_only)
         item.flags |= ISFLAG_KNOW_TYPE;
         break;
 
-	 case MONS_JOSEPH:
-//	 	  if (one_chance_in(100) && !get_unique_item_status(UNRAND_PUNK))
-	 	  if (!get_unique_item_status(UNRAND_PUNK))
-	 	  		make_item_unrandart(item, UNRAND_PUNK);
-	 	  break;
+         case MONS_JOSEPH:
+//                if (one_chance_in(100) && !get_unique_item_status(UNRAND_PUNK))
+                  if (!get_unique_item_status(UNRAND_PUNK))
+                                make_item_unrandart(item, UNRAND_PUNK);
+                  break;
 
     case MONS_CYCLOPS:
     case MONS_STONE_GIANT:
@@ -1157,12 +1157,12 @@ int make_mons_weapon(monster_type type, int level, bool melee_only)
             make_item_unrandart(item, UNRAND_SNAKEBITE);
         break;
 
-	case MONS_JORY:
+        case MONS_JORY:
 //        if (one_chance_in(100) && !get_unique_item_status(UNRAND_VAMPIRES_TOOTH))
         if (!get_unique_item_status(UNRAND_VAMPIRES_TOOTH))
             make_item_unrandart(item, UNRAND_VAMPIRES_TOOTH);
         break;
-	
+
 
     case MONS_ARACHNE:
         force_item = true;
@@ -1707,12 +1707,14 @@ static void _give_shield(monster* mon, int level)
         break;
 
     case MONS_NERGALLE:
-    		if (one_chance_in(100) && !get_unique_item_status(UNRAND_FINGER_AMULET))
-    		{
+                if (one_chance_in(100) && !get_unique_item_status(UNRAND_FINGER_AMULET))
+                {
         shield = make_item_for_monster(mon, OBJ_JEWELLERY, AMU_NOTHING, level);
         if (shield)
+        {
             make_item_unrandart(*shield, UNRAND_FINGER_AMULET);
-			}        
+                        }
+        }
         break;
 
     case MONS_DEMONSPAWN_CORRUPTER:
@@ -1930,13 +1932,13 @@ int make_mons_armour(monster_type type, int level)
         break;
 
     case MONS_PRINCE_RIBBIT:
-    	  if (!get_unique_item_status(UNRAND_DYROVEPREVA))
+          if (!get_unique_item_status(UNRAND_DYROVEPREVA))
         {
         force_item = true;
         item.base_type = OBJ_ARMOUR;
         item.sub_type = ARM_HAT;
         make_item_unrandart(item, UNRAND_DYROVEPREVA);
-			}        
+                        }
         break;
 
     case MONS_HELLBINDER:
@@ -2054,12 +2056,12 @@ int make_mons_armour(monster_type type, int level)
         break;
 
     case MONS_MAURICE:
-			force_item = true;
-       	item.base_type = OBJ_ARMOUR;
-        	item.sub_type  = ARM_CLOAK;
-			if (one_chance_in(100) && !get_unique_item_status(UNRAND_THIEF))
-				make_item_unrandart(item, UNRAND_THIEF);			
-			break;
+                        force_item = true;
+        item.base_type = OBJ_ARMOUR;
+                item.sub_type  = ARM_CLOAK;
+                        if (one_chance_in(100) && !get_unique_item_status(UNRAND_THIEF))
+                                make_item_unrandart(item, UNRAND_THIEF);
+                        break;
 
     case MONS_CRAZY_YIUF:
         item.base_type = OBJ_ARMOUR;
@@ -2068,20 +2070,20 @@ int make_mons_armour(monster_type type, int level)
 
     case MONS_FANNAR:
     {
-    		force_item = true;
-    		item.base_type = OBJ_ARMOUR;
+                force_item = true;
+                item.base_type = OBJ_ARMOUR;
          if (one_chance_in(100) && !get_unique_item_status(UNRAND_ZHOR))
-			{
-				item.sub_type = ARM_ANIMAL_SKIN;
-        		make_item_unrandart(item, UNRAND_ZHOR);
-			}
-			else
-			{
-     		item.sub_type  = ARM_ROBE;
-     		item.plus = 1 + coinflip();
-     		set_item_ego_type(item, OBJ_ARMOUR, SPARM_COLD_RESISTANCE);
-     		item.flags |= ISFLAG_KNOW_TYPE;
-			}
+                        {
+                                item.sub_type = ARM_ANIMAL_SKIN;
+                        make_item_unrandart(item, UNRAND_ZHOR);
+                        }
+                        else
+                        {
+                item.sub_type  = ARM_ROBE;
+                item.plus = 1 + coinflip();
+                set_item_ego_type(item, OBJ_ARMOUR, SPARM_COLD_RESISTANCE);
+                item.flags |= ISFLAG_KNOW_TYPE;
+                        }
         break;
     }
 
