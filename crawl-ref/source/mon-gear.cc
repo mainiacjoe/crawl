@@ -1699,12 +1699,6 @@ static void _give_shield(monster* mon, int level)
         shield = make_item_for_monster(mon, OBJ_ARMOUR, ARM_GLOVES,
                                        level * 2 + 1, 1);
         break;
-        
-//    case MONS_PRINCE_RIBBIT:
-//    	  if (one_chance_in(100) && !get_unique_item_status(UNRAND_DYROVEPREVA))
-//			    make_item_unrandart(item, UNRAND_DYROVEPREVA);
-//        break;
-        
 
     case MONS_ROBIN:
         // The Nikola Hack
@@ -1720,8 +1714,6 @@ static void _give_shield(monster* mon, int level)
             make_item_unrandart(*shield, UNRAND_FINGER_AMULET);
 			}        
         break;
-
-
 
     case MONS_DEMONSPAWN_CORRUPTER:
     case MONS_DEMONSPAWN_BLACK_SUN:
@@ -1935,6 +1927,16 @@ int make_mons_armour(monster_type type, int level)
         else
             item.plus = random_range(6, 9);
         force_item = true;
+        break;
+
+    case MONS_PRINCE_RIBBIT:
+    	  if (!get_unique_item_status(UNRAND_DYROVEPREVA))
+        {
+        force_item = true;
+        item.base_type = OBJ_ARMOUR;
+        item.sub_type = ARM_HAT;
+        make_item_unrandart(item, UNRAND_DYROVEPREVA);
+			}        
         break;
 
     case MONS_HELLBINDER:
