@@ -257,6 +257,30 @@ MAP
 ```````
 ENDMAP
 
+NAME:  mainiacjoe_shoals_entry_watcher_in_the_water
+TAGS:  shoals_entry patrolling transparent no_pool_fixup
+KFEAT: O = enter_shoals
+# the plants protect the auto-exploring player from the kraken
+MONS:  kraken
+SUBST: W = WPPPQ
+KMONS: P = plant
+KMONS: Q = bush
+KFEAT: PQ = shallow_water
+MAP
+  xxxxx
+ xxWWWxx
+.xWWWWWx
+.xWWWWWxx
+.WWWWWWWx
+.WWWWWWwm
+@WWWWOW1m@
+.WWWWWWwm
+.WWWWWWWx
+.xWWWWWxx
+.xWWWWWx
+ xxWWWxx
+  xxxxx
+ENDMAP
 ###############################################################################
 #
 # <<2>> Decorative vaults.
